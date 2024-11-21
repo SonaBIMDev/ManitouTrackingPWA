@@ -5,19 +5,19 @@ const { initializeApp } = require('firebase/app');
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyAgSNLgxsqFDTIoOsoMtn-Fm-7T3ixdfiE",
+    apiKey: "AIzaSyD5wr1Y6Xaus2BcytfjgdOdlwH3gMbnfog",
   
-    authDomain: "manitou-a2370.firebaseapp.com",
+    authDomain: "manitou-rdtc.firebaseapp.com",
   
-    databaseURL: "https://manitou-a2370-default-rtdb.europe-west1.firebasedatabase.app",
+    databaseURL: "https://manitou-rdtc-default-rtdb.europe-west1.firebasedatabase.app",
   
-    projectId: "manitou-a2370",
+    projectId: "manitou-rdtc",
   
-    storageBucket: "manitou-a2370.appspot.com",
+    storageBucket: "manitou-rdtc.firebasestorage.app",
   
-    messagingSenderId: "510602875968",
+    messagingSenderId: "904797755825",
   
-    appId: "1:510602875968:web:d475699a18cc65c687bba5"
+    appId: "1:904797755825:web:f94b740596aabd64068590"
   
   };
   

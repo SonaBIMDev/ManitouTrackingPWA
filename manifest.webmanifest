@@ -1,7 +1,7 @@
 {
-    "name": "Manitou Google Sheet PWA",
-    "short_name": "Manitou PWA",
-    "description": "Mise à jour des coordonnées GPS dans une GoogleSheet",
+    "name": "Manitou Tracking PWA",
+    "short_name": "Manitou RDTC",
+    "description": "Tracking Manitou à partir des coordonnées GPS",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
