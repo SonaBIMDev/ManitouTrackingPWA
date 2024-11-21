@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Appelez initMap au chargement de la page
 window.onload = function() {
-    startWatchingPosition();
+    //startWatchingPosition();
     loadSupports();    
 };
 
@@ -48,6 +48,11 @@ function initMap(lat, lon) {
 }
 
 function updatePosition(position) {
+    if (!toggleTrackingButton.checked) {
+        console.log("Le suivi GPS est désactivé, mise à jour ignorée");
+        return;
+      }
+      
     console.log("Position mise à jour reçue");
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
@@ -89,16 +94,20 @@ function handleError(error) {
 }
 
 function startWatchingPosition() {
-    if ("geolocation" in navigator) {
+    if (!toggleTrackingButton.checked) {
+        console.log("Le suivi GPS n'est pas activé");
+        return;
+        }
+        if ("geolocation" in navigator) {
         console.log("Géolocalisation supportée, démarrage de watchPosition");
         watchId = navigator.geolocation.watchPosition(updatePosition, handleError, {
             enableHighAccuracy: true,
             timeout: 5000,
             maximumAge: 0
         });
-    } else {
+        } else {
         console.error("La géolocalisation n'est pas supportée par ce navigateur.");
-    }
+        }
 }
 
 // Fonction pour charger la liste des supports
@@ -180,11 +189,11 @@ toggleTrackingButton.addEventListener('change', function() {
     if (this.checked) {
         startWatchingPosition();
     } else {
-        if (watchId) {
-            navigator.geolocation.clearWatch(watchId);
-            watchId = null;
-        }
-        console.log('Suivi GPS désactivé');
+    if (watchId) {
+        navigator.geolocation.clearWatch(watchId);
+        watchId = null;
+    }
+    console.log('Suivi GPS désactivé');
     }
 });
 
