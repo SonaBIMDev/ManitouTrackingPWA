@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Une PWA pour e tracking d'objets Manitou">
+    <meta name="description" content="Une PWA pour réaliser du tracking d'objets Manitou">
     <meta name="theme-color" content="#ba0e02">
     <title>Google Sheet PWA</title>
     <link rel="stylesheet" href="/style.css">
@@ -17,18 +17,28 @@
     <div class="main-container">
         <div class="container">            
             <h2>Manitou Tracking PWA</h2>
-            <select id="supportSelect">
-                <option value="">Quel est votre support ?</option>
-                <!-- Les options seront ajoutées dynamiquement via JavaScript -->
-            </select>            
-            <!-- <button id="getData">Get Data</button> -->    
-              <div class="switch-container">
-                <label class="switch">
-                  <input type="checkbox" id="toggleTracking">
-                  <span class="slider round"></span>
-                </label>
-                <span class="switch-label">Activer le suivi GPS</span>
-              </div>     
+            <div class="main-container">
+                <div class="left-column">
+                  <select id="supportSelect">
+                    <option value="">Sélectionne un support</option>
+                    <!-- Les options seront ajoutées dynamiquement via JavaScript -->
+                  </select>
+                  
+                  <div class="switch-container">
+                    <label class="switch">
+                      <input type="checkbox" id="toggleTracking">
+                      <span class="slider round"></span>
+                    </label>
+                    <span class="switch-label">Activer le suivi GPS</span>
+                  </div>
+                  
+                  <!-- Autres éléments de la colonne gauche -->
+                </div>
+                
+                <div class="right-column">
+                    <img id="imagePreview" src="" alt="Image preview" style="display:none;">
+                </div>
+              </div>
                 <div id="result">
                     <div class="coordinate-label">
                         <span>Latitude : </span>
@@ -38,7 +48,7 @@
                         <span>Longitude : </span>
                         <span id="longitude">-</span>
                     </div>
-                    <img id="imagePreview" src="" alt="Image preview" style="width:100px; height:100px; display:none;">
+                    
                 </div>
             <div id="logArea"></div>
             <button id="clearLog">Effacer les logs</button>

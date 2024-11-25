@@ -25,6 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const logArea = document.getElementById('logArea');
     const clearLogButton = document.getElementById('clearLog');
 
+    // Initialiser l'image à vide au chargement de la page
+    imagePreview.src = '';
+    imagePreview.style.display = 'none';
+    
     clearLogButton.addEventListener('click', () => {
         logArea.innerHTML = '';
         console.log('Logs effacés'); // Ajoutez cette ligne pour le débogage
@@ -115,12 +119,13 @@ async function loadSupports() {
     try {
         const response = await fetch(`${apiBaseUrl}/getSupports`);
         const data = await response.json();
-        if (data.success && Array.isArray(data.supports)) {
+        if (data.success && Array.isArray(data.supports)) {            
             data.supports.forEach(support => {
                 if (support && support.elementId !== undefined && support.commentaire) {
                     const option = document.createElement('option');
                     option.value = support.elementId;
-                    option.textContent = support.commentaire;
+                    option.textContent = support.commentaire;                    
+                    option.dataset.imageUrl = support.image_url; // Ajoutez cette ligne
                     supportSelect.appendChild(option);
                 }
             });
@@ -138,10 +143,23 @@ supportSelect.addEventListener('change', async () => {
     if (!selectedElementId) {
         alert('Veuillez sélectionner un support');
         console.log('Veuillez sélectionner un support');
+        imagePreview.src = ''; // Ou le chemin vers une image par défaut
+        imagePreview.style.display = 'none';
         return;
     }
     const selectedOption = supportSelect.options[supportSelect.selectedIndex];
     const selectedSupportName = selectedOption.textContent;
+    
+    // Afficher l'image
+    const imageUrl = selectedOption.dataset.imageUrl;
+    if (imageUrl) {
+        imagePreview.src = imageUrl;
+        imagePreview.style.display = 'block';
+    } else {
+        imagePreview.src = '';
+        imagePreview.style.display = 'none';
+    }
+    
     console.log('Vous avez sélectionné le support: ' + selectedSupportName);
     
 });

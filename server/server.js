@@ -25,7 +25,8 @@ app.get('/api/getSupports', async (req, res) => {
             const supports = elements.filter(el => el && el.elementid && el.commentaire)
                                      .map(el => ({
                                          elementId: el.elementid,
-                                         commentaire: el.commentaire
+                                         commentaire: el.commentaire,
+                                         image_url: el.image_url
                                      }));
             res.json({ success: true, supports });
         } else {
