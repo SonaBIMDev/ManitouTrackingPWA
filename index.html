@@ -17,28 +17,18 @@
     <div class="main-container">
         <div class="container">            
             <h2>Manitou Tracking PWA</h2>
-            <div class="main-container">
-                <div class="left-column">
-                  <select id="supportSelect">
-                    <option value="">Sélectionne un support</option>
-                    <!-- Les options seront ajoutées dynamiquement via JavaScript -->
-                  </select>
-                  
-                  <div class="switch-container">
-                    <label class="switch">
-                      <input type="checkbox" id="toggleTracking">
-                      <span class="slider round"></span>
-                    </label>
-                    <span class="switch-label">Activer le suivi GPS</span>
-                  </div>
-                  
-                  <!-- Autres éléments de la colonne gauche -->
-                </div>
-                
-                <div class="right-column">
-                    <img id="imagePreview" src="" alt="Image preview" style="display:none;">
-                </div>
-              </div>
+            <select id="supportSelect">
+                <option value="">Quel est votre support ?</option>
+                <!-- Les options seront ajoutées dynamiquement via JavaScript -->
+            </select>            
+            <!-- <button id="getData">Get Data</button> -->    
+              <div class="switch-container">
+                <label class="switch">
+                  <input type="checkbox" id="toggleTracking">
+                  <span class="slider round"></span>
+                </label>
+                <span class="switch-label">Activer le suivi GPS</span>
+              </div>     
                 <div id="result">
                     <div class="coordinate-label">
                         <span>Latitude : </span>
