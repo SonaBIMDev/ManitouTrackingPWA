@@ -19,6 +19,7 @@ console.log('Base de données Firebase obtenue');
 
 app.get('/api/getSupports', async (req, res) => {
     try {
+        //comment
         const snapshot = await get(ref(database, 'elements'));
         if (snapshot.exists()) {
             const elements = snapshot.val();
