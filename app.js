@@ -119,7 +119,7 @@ async function loadSupports() {
     try {
         const response = await fetch(`${apiBaseUrl}/getSupports`);
         const data = await response.json();
-        console.error('data are :', data);
+        console.log('data are :', data);
         if (data.success && Array.isArray(data.supports)) {            
             data.supports.forEach(support => {
                 if (support && support.elementId !== undefined && support.commentaire) {
