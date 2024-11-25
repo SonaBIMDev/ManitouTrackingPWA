@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialiser l'image à vide au chargement de la page
     imagePreview.src = '';
     imagePreview.style.display = 'none';
-    
+
     clearLogButton.addEventListener('click', () => {
         logArea.innerHTML = '';
         console.log('Logs effacés'); // Ajoutez cette ligne pour le débogage
@@ -119,6 +119,7 @@ async function loadSupports() {
     try {
         const response = await fetch(`${apiBaseUrl}/getSupports`);
         const data = await response.json();
+        console.error('data are :', data);
         if (data.success && Array.isArray(data.supports)) {            
             data.supports.forEach(support => {
                 if (support && support.elementId !== undefined && support.commentaire) {
