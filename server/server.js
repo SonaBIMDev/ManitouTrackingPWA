@@ -39,6 +39,7 @@ app.get('/api/getSupports', async (req, res) => {
 });
 
 
+
 app.post('/api/getData', async (req, res) => {
     console.log('Requête reçue sur /api/getData');
     const { elementId } = req.body;
